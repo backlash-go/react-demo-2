@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
 
-function App() {
+
+let n = 1000;
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={'green'}>App组件 {n}
+      <div><Component n={100}/>
+        <div>
+          <Component2 num={["a", "v", "c"]}/>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+
+const Component = (props) => {
+  return (
+    <div>
+      {props.n % 2 === 0 ? <div>n是偶数</div> : <div>n 奇数</div>}
+    </div>
+  );
+};
+
+const Component2 = (props) => {
+  return (
+    props.num.map(
+      (item,index) => {
+        return <div>{item} indexis {index}</div>
+      }
+    )
+  );
+};
 
 export default App;
